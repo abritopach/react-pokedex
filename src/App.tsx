@@ -3,6 +3,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { NoContent } from './pages/NoContent';
 import { Error404 } from './pages/Error404';
+import { Pokedex } from './pages/Pokedex';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const router = createBrowserRouter([
   {
@@ -11,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/pokedex",
-    element: <NoContent />,
+    element: <Pokedex />,
   },
   {
     path: "/moves",
@@ -39,9 +42,22 @@ const router = createBrowserRouter([
   }
 ]);
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      retry: 1,
+    },
+  },
+});
+
 
 const App = () => (
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <RouterProvider router={router} />
+    </QueryClientProvider>
 )
 
 export default App;
