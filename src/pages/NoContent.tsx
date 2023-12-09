@@ -5,15 +5,9 @@ import EmptyPokeBall from '../assets/empty_pokeball.png';
 
 export const NoContent = () => {
     return (
-        <section className='flex flex-col justify-center pt-6 items-center w-full mx-auto'>
+        <section className='flex flex-col justify-center items-center w-full mx-auto pt-6'>
             <figure className='flex justify-center items-center pl-4'>
-                <Link to='/' className='flex items-center'>
-                    <span
-                        className='material-icons-outlined mr-2 pt-2 text-4xl'
-                        title='Back to the Menu'
-                    >
-                        reply
-                    </span>
+                <Link to='/' className='flex flex-col justify-center items-center'>
                     <img
                         className='w-1/2'
                         src={PokeApiLogo}
@@ -22,15 +16,15 @@ export const NoContent = () => {
                     />
                 </Link>
             </figure>
-            <figure className='flex flex-col justify-center items-center mt-16'>
+            <figure className='flex flex-col justify-center items-center mt-8'>
                 <img
                     className='w-1/3'
                     src={EmptyPokeBall}
                     alt='Empty Pokeball'
                 />
                 <figcaption className='w-4/5 text-center md:text-2xl text-medium text-xl pt-4'>
-                    I'm sorry, we're working on this content, please come back
-                    later.
+                    <p>COMING SOON!</p>
+                    We're working on this content.
                 </figcaption>
             </figure>
         </section>
