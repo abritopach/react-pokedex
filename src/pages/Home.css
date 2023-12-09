@@ -1,0 +1,20 @@
+.home-background {
+    background-color: #f5f4f4;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.home-menu {
+    background-color: #fff;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.home-pokeball {
+    position: absolute;
+    opacity: 0.15;
+    width: 195px;
+    right: -50px;
+    top: -100px;
+}
