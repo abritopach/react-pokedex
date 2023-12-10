@@ -1,6 +1,8 @@
+import { Pokemon } from "../models/pokemon.model";
+
 const URL_BASE = 'https://pokeapi.co/api/v2/pokemon';
 
-export interface Response {
+export interface PokemonsResponse {
     count: number;
     next: string;
     previous: string;
@@ -12,7 +14,16 @@ export interface PokemonsResult {
     url: string
 }
 
-export const getPokemons = async (): Promise<Response> => {
-    const res = await fetch(`${URL_BASE}`);
+export const getPokemons = async ({limit = 24, offset = 0}): Promise<Pokemon[]> => {
+    const res = await fetch(`${URL_BASE}?limit=${limit}&offset=${offset}`);
+    const data : PokemonsResponse = await res.json();
+    const promises = data.results.map(async (pokemon) => {
+        return await getPokemon(pokemon.url);
+    });
+    return Promise.all(promises);
+}
+
+export const getPokemon = async (url: string): Promise<Pokemon> => {
+    const res = await fetch(url);
     return res.json();
 }
