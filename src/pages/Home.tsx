@@ -10,7 +10,7 @@ export const Home = () => {
             <article className='home-menu pt-16'>
                 <figure className='relative'>
                     <img className='home-pokeball' src={PokeBall} alt='PokeBall image' />
-                    <figcaption className='font-extrabold md:text-5xl text-2xl leading-relaxed py-3 px-4 md:w-10/12 w-full mx-auto'>
+                    <figcaption className='font-extrabold md:text-5xl text-3xl leading-relaxed py-3 md:px-4 px-16 md:w-10/12 w-full mx-auto'>
                         What Pokemon <br /> are you looking for?
                     </figcaption>
                 </figure>

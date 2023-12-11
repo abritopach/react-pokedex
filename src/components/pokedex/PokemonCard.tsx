@@ -12,7 +12,6 @@ interface Props {
 export const PokemonCard = ({id, name, types }: Props) => {
 
     const pokemonTypes = types.map((type) => type.type.name);
-    console.log('pokemonTypes', pokemonTypes);
     const color = pokemonMapColors.get(pokemonTypes[0]);
 
     const styleBg = {
