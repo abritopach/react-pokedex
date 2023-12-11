@@ -1,4 +1,4 @@
-.cardMenu {
+.card-menu{
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -19,27 +19,27 @@
         rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
-.cardMenu:nth-child(1) {
+.card-menu:nth-child(1) {
     background-color: #55c5ab;
 }
 
-.cardMenu:nth-child(2) {
+.card-menu:nth-child(2) {
     background-color: #f67869;
 }
-.cardMenu:nth-child(3) {
+.card-menu:nth-child(3) {
     background-color: #54a8f7;
 }
-.cardMenu:nth-child(4) {
+.card-menu:nth-child(4) {
     background-color: #ffcf4a;
 }
-.cardMenu:nth-child(5) {
+.card-menu:nth-child(5) {
     background-color: #9066a2;
 }
-.cardMenu:nth-child(6) {
+.card-menu:nth-child(6) {
     background-color: #b1756d;
 }
 
-.cardMenu:hover {
+.card-menu:hover {
     font-weight: 900;
     letter-spacing: 1.4px;
     transform: scale(0.9);
