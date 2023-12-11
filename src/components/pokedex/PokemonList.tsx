@@ -9,8 +9,8 @@ export const PokemonList = () => {
 
     return (
         <>
-            <h1>Pokemon list</h1>
-            <section className='grid grid-cols-5 justify-items-center gap-x-2 md:gap-x-4 md:gap-y-5 gap-y-2 md:w-11/12 w-full mx-auto pb-10 z-10'>
+            <h1 className="pl-4 md:pl-10 text-3xl font-bold tracking-tighter py-5">Pokedex</h1>
+            <section className='grid grid-cols-2 xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 justify-items-center gap-x-2 md:gap-x-4 md:gap-y-5 gap-y-2 md:w-11/12 w-full mx-auto pt-10 pb-10 z-10'>
                 {isLoading && <Loading />}
                 {data?.map((pokemon) => (
                     <PokemonCard

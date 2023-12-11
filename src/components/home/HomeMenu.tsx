@@ -5,17 +5,16 @@ import "./HomeMenu.css";
 export const HomeMenu = () => {
 
     return (
-        <section className='grid grid-cols-2 justify-items-center gap-x-2 gap-y-6 px-3 w-full mx-auto pt-6 pb-12'>
-            <figure className='cardMenu'>
-                <Link
-                    to='pokedex'>
+        <section className='grid grid-cols-2 justify-items-center gap-x-2 md:gap-x-4 gap-y-6 px-3 md:w-1/2 w-full mx-auto md:pt-8 md:pb-16 pt-6 pb-12'>
+            <figure className='card-menu'>
+                <Link to='pokedex'>
                     <img className='pokeball1 pokeball' src={PokeBall} alt='Pokeball' />
                     <figcaption className='text-lg'>Pokedex</figcaption>
                     <img className='pokeball2 pokeball' src={PokeBall} alt='Pokeball' />
                 </Link>
             </figure>
 
-            <figure className='cardMenu'>
+            <figure className='card-menu'>
                 <Link to='Moves'>
                     <img className='pokeball1 pokeball' src={PokeBall} alt='Pokeball' />
                     <figcaption className='text-lg'>Moves</figcaption>
@@ -23,7 +22,7 @@ export const HomeMenu = () => {
                 </Link>
             </figure>
 
-            <figure className='cardMenu'>
+            <figure className='card-menu'>
                 <Link to='Abilities'>
                     <img className='pokeball1 pokeball' src={PokeBall} alt='Pokeball' />
                     <figcaption className='text-lg'>Abilities</figcaption>
@@ -31,7 +30,7 @@ export const HomeMenu = () => {
                 </Link>
             </figure>
 
-            <figure className='cardMenu'>
+            <figure className='card-menu'>
                 <Link to='Berries'>
                     <img className='pokeball1 pokeball' src={PokeBall} alt='Pokeball' />
                     <figcaption className='text-lg'>Berries</figcaption>
@@ -39,7 +38,7 @@ export const HomeMenu = () => {
                 </Link>
             </figure>
 
-            <figure className='cardMenu'>
+            <figure className='card-menu'>
                 <Link to='Location'>
                     <img className='pokeball1 pokeball' src={PokeBall} alt='Pokeball' />
                     <figcaption className='text-lg'>Location</figcaption>
@@ -47,7 +46,7 @@ export const HomeMenu = () => {
                 </Link>
             </figure>
 
-            <figure className='cardMenu'>
+            <figure className='card-menu'>
                 <Link to='Type_Charts'>
                     <img className='pokeball1 pokeball' src={PokeBall} alt='Pokeball' />
                     <figcaption className='text-lg'>Type Charts</figcaption>
