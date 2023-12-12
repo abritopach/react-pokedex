@@ -1,0 +1,13 @@
+.header-pokeball {
+    position: absolute;
+    opacity: 0.15;
+    width: 195px;
+    right: -50px;
+    top: -30px;
+}
+
+.header-menu {
+    position: absolute;
+    right: 26px;
+    top: 48px;
+}
