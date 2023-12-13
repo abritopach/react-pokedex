@@ -14,7 +14,7 @@ export const Pokedex = () => {
                 searchForGeneration={searchForGeneration} />
             <PokedexContainer />
             {searchForGeneration && (
-                <PokedexGeneration searchForGeneration={searchForGeneration} />
+                <PokedexGeneration setSearchForGeneration={setSearchForGeneration} searchForGeneration={searchForGeneration} />
             )}
         </section>
     );

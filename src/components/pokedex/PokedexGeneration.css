@@ -1,4 +1,4 @@
-.generationContainer {
+.generation-container {
     position: fixed;
     background-color: rgba(000, 000, 000, 0.5);
     top: 0;
@@ -6,16 +6,14 @@
     width: 100%;
     height: 100%;
     z-index: 10;
-    /* transition: all 4s ease-in; */
-    /* transition-delay: 0.5s; */
     transform: scale(0);
 }
 
-.generationContainer.active {
+.generation-container.active {
     transform: scale(1);
 }
 
-.generationSection {
+.generation-section {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -33,12 +31,12 @@
 }
 
 @media screen and (min-width: 768px) {
-    .generationSection {
+    .generation-section {
         height: 320px;
     }
 }
 
-.generationSection::before {
+.generation-section::before {
     content: "";
     position: absolute;
     top: 14px;
@@ -49,15 +47,12 @@
 }
 
 @media screen and (min-wdith: 768px) {
-    .generationSection article {
+    .generation-section article {
         padding: 0 20px;
     }
 }
-/* .generationSection article::-webkit-scrollbar {
-    display: none;
-} */
 
-.generationCard {
+.generation-card {
     position: relative;
     overflow: hidden;
     height: 95px;
@@ -76,12 +71,12 @@
     transition: all 0.2s ease;
 }
 
-.generationCard:hover,
-.generationCard:focus {
+.generation-card:hover,
+.generation-card:focus {
     transform: scale(0.9);
 }
 
-.generationPoke {
+.generation-poke {
     opacity: 0.15;
     width: 70px;
     position: absolute;
@@ -90,17 +85,17 @@
 }
 
 @media (min-width: 768px) {
-    .generationSection::before {
+    .generation-section::before {
         width: 8%;
     }
 
-    .generationCard {
+    .generation-card {
         height: 125px;
     }
 }
 
 @media (min-width: 1024px) {
-    .generationCard {
+    .generation-card {
         height: 145px;
     }
 }
