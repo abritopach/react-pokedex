@@ -7,6 +7,7 @@ interface PropsMenuButton {
 
 export const MenuButton = ({ setSearchForGeneration, searchForGeneration }: PropsMenuButton) => {
     const handleClick = () => {
+
         const menuBtn = document.querySelector(".menu-btn");
 
         if (menuBtn && menuBtn.classList.contains("is-active")) {
