@@ -79,16 +79,21 @@ export const PokedexGeneration = ({ searchForGeneration, setSearchForGeneration 
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent): void {
-        if (ref.current && !ref.current.contains(event.target as Node)) {
-            setSearchForGeneration(false);
-        }
+            if (ref.current && !ref.current.contains(event.target as Node) &&
+            !(event.target as Element).className.includes("hamburger")) {
+                const menuBtn = document.querySelector(".menu-btn");
+                if (menuBtn && menuBtn.classList.contains("is-active")) {
+                    menuBtn.classList.remove("is-active");
+                    setSearchForGeneration(false);
+                }
+            }
         }
         // Bind the event listener
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
-        // Unbind the event listener on clean up
-        document.removeEventListener('mousedown', handleClickOutside);
-        };
+            // Unbind the event listener on clean up
+            document.removeEventListener('mousedown', handleClickOutside);
+            };
     });
 
 
