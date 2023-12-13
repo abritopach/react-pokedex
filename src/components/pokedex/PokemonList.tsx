@@ -4,7 +4,7 @@ import { PokemonCard } from "./PokemonCard";
 
 export const PokemonList = () => {
 
-    const { data, isLoading } = useGetPokemons();
+    const { data, isLoading } = useGetPokemons({limit: 151});
 
     return (
         <>
