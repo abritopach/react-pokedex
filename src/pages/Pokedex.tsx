@@ -2,7 +2,7 @@ import { PokedexContainer } from "../components/pokedex/PokedexContainer";
 import './Pokedex.css';
 import { useState } from "react";
 import { PokedexGeneration } from "../components/pokedex/PokedexGeneration";
-import { Header } from "../components/common/Header";
+import { Header } from "../components/common/header/Header";
 
 export const Pokedex = () => {
 

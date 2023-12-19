@@ -1,6 +1,9 @@
 import { NewsItem } from "./NewsItem";
 
-export const News = () => {
+export const PokemonNews = () => {
+
+    const newsItems =  [...Array(6)].map((_,i) => i);
+
     return (
         <section className='md:pt-16 pt-10 px-4 md:w-11/12 mx-auto w-full'>
             <div className='flex justify-between items-center sticky top-0'>
@@ -12,13 +15,9 @@ export const News = () => {
                 </button>
             </div>
             <section className='my-2'>
-                <NewsItem />
-                <NewsItem />
-                <NewsItem />
-                <NewsItem />
-                <NewsItem />
-                <NewsItem />
-                <NewsItem />
+                { newsItems.map((item) => (
+                    <NewsItem key={item} />
+                ))}
             </section>
         </section>
     );

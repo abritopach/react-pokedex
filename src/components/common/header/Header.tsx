@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import PokeBall from '../../assets/pokeball.png';
+import PokeBall from '../../../assets/pokeball.png';
 import './Header.css';
-import { MenuButton } from "../menu/MenuButton";
+import { MenuButton } from "../../menu/MenuButton";
 
 interface PropsHeader {
     title: string;

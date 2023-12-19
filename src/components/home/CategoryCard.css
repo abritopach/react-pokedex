@@ -1,4 +1,4 @@
-.card-menu{
+.category-card {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -19,36 +19,14 @@
         rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
-.card-menu:nth-child(1) {
-    background-color: #55c5ab;
-}
-
-.card-menu:nth-child(2) {
-    background-color: #f67869;
-}
-.card-menu:nth-child(3) {
-    background-color: #54a8f7;
-}
-.card-menu:nth-child(4) {
-    background-color: #ffcf4a;
-}
-.card-menu:nth-child(5) {
-    background-color: #9066a2;
-}
-.card-menu:nth-child(6) {
-    background-color: #b1756d;
-}
-
-.card-menu:hover {
-    font-weight: 900;
-    letter-spacing: 1.4px;
+.category-card:hover {
     transform: scale(0.9);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
         rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .pokeball {
-    opacity: 0.2;
+    opacity: 0.08;
     width: 70px;
     height: 100%;
     transform: scale(1.3);
