@@ -1,22 +1,15 @@
 import { Link } from "react-router-dom";
 import PokeBall from '../../../assets/pokeball.png';
 import './Header.css';
-import { MenuButton } from "../../menu/MenuButton";
 
 interface PropsHeader {
     title: string;
-    showArrowBack?: boolean;
-    showMenuToggle?: boolean;
-    searchForGeneration: boolean;
-    setSearchForGeneration: React.Dispatch<React.SetStateAction<boolean>>
+    showArrowBack?: boolean
 }
 
 export const Header = ({
     title,
-    showArrowBack = false,
-    showMenuToggle = false,
-    searchForGeneration,
-    setSearchForGeneration
+    showArrowBack = false
 }: PropsHeader) => {
 
     return (
@@ -30,14 +23,6 @@ export const Header = ({
                     </Link>
                 )}
                 <img className='header-pokeball' src={PokeBall} alt='Pokeball image' />
-                {showMenuToggle && (
-                    <div className='header-menu'>
-                        <MenuButton
-                            setSearchForGeneration={setSearchForGeneration}
-                            searchForGeneration={searchForGeneration}
-                        />
-                    </div>
-                )}
             </section>
             <section className='flex justify-between items-center'>
                 <h1 className='font-extrabold md:text-5xl text-3xl leading-relaxed py-3 md:px-4 px-16 md:w-10/12 w-full mx-auto'
