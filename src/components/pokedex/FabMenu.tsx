@@ -3,18 +3,25 @@ import "./FabMenu.css";
 import { FabMenuButton } from "./FabMenuButton";
 import { FabItem, FabItemProps } from "./FabItem";
 
-export const FabMenu = () => {
+export interface FabMenuProps {
+    onPress: (title: string) => void;
+}
+
+export const FabMenu = ({onPress}: FabMenuProps) => {
     const [toggleFabMenu, setToggleFabMenu] = useState(false);
 
     const fabItems: FabItemProps[] = [
-        {icon: 'favorite', title: 'Favorite Pokémon', onPress: handleOnPressEvent},
-        {icon: 'filter_vintage', title: 'All Types', onPress: handleOnPressEvent},
-        {icon: 'bolt', title: 'All Gen', onPress: handleOnPressEvent},
-        {icon: 'search', title: 'Search', onPress: handleOnPressEvent},
+        {icon: 'favorite', title: 'Favorite Pokémon', onPress},
+        {icon: 'filter_vintage', title: 'All Types', onPress},
+        {icon: 'bolt', title: 'All Gen', onPress},
+        {icon: 'search', title: 'Search', onPress},
     ];
 
     function handleOnPressEvent(title: string) {
-        console.log('handleOnPressEvent', title);
+        setToggleFabMenu(!toggleFabMenu);
+        const menuBtn = document.querySelector(".menuList");
+        menuBtn?.classList.remove("is-active");
+        onPress(title);
     }
 
     return (
