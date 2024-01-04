@@ -1,12 +1,21 @@
 import { useState } from "react";
 import "./FabMenu.css";
 import { FabMenuButton } from "./FabMenuButton";
-import { FabItem } from "./FabItem";
+import { FabItem, FabItemProps } from "./FabItem";
 
 export const FabMenu = () => {
     const [toggleFabMenu, setToggleFabMenu] = useState(false);
 
-    const fabItems =  [...Array(4)].map((_,i) => i);
+    const fabItems: FabItemProps[] = [
+        {icon: 'favorite', title: 'Favorite Pokémon', onPress: handleOnPressEvent},
+        {icon: 'filter_vintage', title: 'All Types', onPress: handleOnPressEvent},
+        {icon: 'bolt', title: 'All Gen', onPress: handleOnPressEvent},
+        {icon: 'search', title: 'Search', onPress: handleOnPressEvent},
+    ];
+
+    function handleOnPressEvent(title: string) {
+        console.log('handleOnPressEvent', title);
+    }
 
     return (
         <aside
@@ -21,9 +30,14 @@ export const FabMenu = () => {
                 />
             </section>
             {toggleFabMenu ? (
-                fabItems.map((item) => (
-                    <FabItem  key={item}></FabItem>
-                ))
+                <article className='menuActive'>
+                {
+                    fabItems.map((item) => (
+                        <FabItem key={item.title} title={item.title} icon={item.icon}
+                        onPress={handleOnPressEvent}></FabItem>
+                    ))
+                }
+                </article>
             ) : (
                 ""
             )}
