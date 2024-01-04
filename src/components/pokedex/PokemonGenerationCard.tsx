@@ -8,14 +8,16 @@ interface PropsPokemonGenerationCard {
     generation: string;
     limit: number;
     offset: number;
+    setSearchForGeneration: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const PokemonGenerationCard = ({ img, generation, limit, offset }: PropsPokemonGenerationCard) => {
+export const PokemonGenerationCard = ({ img, generation, limit, offset, setSearchForGeneration }: PropsPokemonGenerationCard) => {
 
     const { isFetching, refetch } = useGetPokemons({limit, offset});
 
     const onClickGenerationHandlerClick = () => {
         refetch();
+        setSearchForGeneration(false);
     };
 
     return (
