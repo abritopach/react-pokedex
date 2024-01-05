@@ -1,14 +1,22 @@
 import { PokedexContainer } from "../components/pokedex/PokedexContainer";
 import './Pokedex.css';
 import { Header } from "../components/common/header/Header";
-import { FabMenu } from "../components/pokedex/FabMenu";
+import { FabMenu } from "../components/common/fab-menu/FabMenu";
 import { useState } from "react";
 import { PokedexGeneration } from "../components/pokedex/PokedexGeneration";
+import { FabItemProps } from "../components/common/fab-menu/FabItem";
 
 export const Pokedex = () => {
 
     // const [fabMenuOption, setFabMenuOption] = useState('');
     const [searchForGeneration, setSearchForGeneration] = useState(false);
+
+    const fabItems: Omit<FabItemProps, "onPress">[] = [
+        {icon: 'favorite', title: 'Favorite Pokémon'},
+        {icon: 'filter_vintage', title: 'All Types'},
+        {icon: 'bolt', title: 'All Gen'},
+        {icon: 'search', title: 'Search'},
+    ];
 
     function handleOnPressEvent(title: string) {
         console.log('handleOnPressEvent', title);
@@ -35,7 +43,7 @@ export const Pokedex = () => {
     return (
         <section className='pokedex relative'>
             <Header title="Pokedex" showArrowBack={true} />
-            <FabMenu onPress={handleOnPressEvent} />
+            <FabMenu items={fabItems} onPress={handleOnPressEvent} />
             <PokedexContainer />
             { /*
             { renderFabMenuOption() }
