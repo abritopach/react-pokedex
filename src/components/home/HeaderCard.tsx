@@ -17,7 +17,7 @@ export const HeaderCard = () => {
     return (
         <article className='header-card'>
             <Header title="What Pokemon <br /> are you looking for?" />
-            <SearchBar />
+            <SearchBar onChange={() => {}} />
             <section className='grid grid-cols-2 justify-items-center gap-x-2 md:gap-x-4 gap-y-6 px-3 md:w-1/2 w-full mx-auto md:pt-8 md:pb-16 pt-6 pb-12'>
                 {categories?.map((category) => (
                     <CategoryCard key={category.name} category={category} />
