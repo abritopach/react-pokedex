@@ -4,18 +4,12 @@ import { FabMenuButton } from "./FabMenuButton";
 import { FabItem, FabItemProps } from "./FabItem";
 
 export interface FabMenuProps {
+    items: Omit<FabItemProps, "onPress">[];
     onPress: (title: string) => void;
 }
 
-export const FabMenu = ({onPress}: FabMenuProps) => {
+export const FabMenu = ({items, onPress}: FabMenuProps) => {
     const [toggleFabMenu, setToggleFabMenu] = useState(false);
-
-    const fabItems: FabItemProps[] = [
-        {icon: 'favorite', title: 'Favorite Pokémon', onPress},
-        {icon: 'filter_vintage', title: 'All Types', onPress},
-        {icon: 'bolt', title: 'All Gen', onPress},
-        {icon: 'search', title: 'Search', onPress},
-    ];
 
     function handleOnPressEvent(title: string) {
         setToggleFabMenu(!toggleFabMenu);
@@ -39,7 +33,7 @@ export const FabMenu = ({onPress}: FabMenuProps) => {
             {toggleFabMenu ? (
                 <article className='menuActive'>
                 {
-                    fabItems.map((item) => (
+                    items.map((item) => (
                         <FabItem key={item.title} title={item.title} icon={item.icon}
                         onPress={handleOnPressEvent}></FabItem>
                     ))
