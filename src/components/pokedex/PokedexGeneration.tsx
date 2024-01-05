@@ -8,7 +8,7 @@ import GenerationVI from "../../assets/generation_VI.png";
 import GenerationVII from "../../assets/generation_VII.png";
 import GenerationVIII from "../../assets/generation_VIII.png";
 import { PokemonGenerationCard } from "./PokemonGenerationCard";
-// import { useEffect, useRef } from "react";
+import { useOutsideClick } from "../../hooks/custom/useOutsideClick";
 
 interface PropsPokedexGeneration {
     searchForGeneration: boolean;
@@ -75,31 +75,10 @@ export const PokedexGeneration = ({ searchForGeneration, setSearchForGeneration 
         },
     ];
 
-    /*
-    const ref = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-
-        function handleClickOutside(event: MouseEvent): void {
-            console.log((event.target as Element).className);
-            if (ref.current && !ref.current.contains(event.target as Node) &&
-            !(event.target as Element).className.includes("generation")) {
-                const menuBtn = document.querySelector(".menu-btn");
-                if (menuBtn && menuBtn.classList.contains("is-active")) {
-                    menuBtn.classList.remove("is-active");
-                    setSearchForGeneration(false);
-                }
-            }
-        }
-        // Bind the event listener
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            // Unbind the event listener on clean up
-            document.removeEventListener('mousedown', handleClickOutside);
-            };
-    });
-    */
-
+    const handleClickOutside = () => {
+        setSearchForGeneration(!searchForGeneration);
+    };
+    const ref = useOutsideClick(handleClickOutside);
 
     return (
         <section
@@ -109,7 +88,7 @@ export const PokedexGeneration = ({ searchForGeneration, setSearchForGeneration 
                     : "generation-container"
             }`}
         >
-            <article className='generation-section'>
+            <article ref={ref} className='generation-section'>
                 <h1 className='text-lg font-extrabold pb-4'>Generation</h1>
                 <article className='grid xl:grid-cols-5 md:grid-cols-4 grid-cols-2 justify-items-center gap-x-3 md:gap-x-4 md:gap-y-5 gap-y-3 md:w-11/12 w-full mx-auto pb-4 overflow-y-scroll h-full'>
                     {Regions.map((generation) => (
@@ -119,7 +98,6 @@ export const PokedexGeneration = ({ searchForGeneration, setSearchForGeneration 
                             img={generation.img}
                             limit={generation.limit}
                             offset={generation.offset}
-                            setSearchForGeneration={setSearchForGeneration}
                         />
                     ))}
                 </article>

@@ -1,4 +1,8 @@
-export const SearchBar = () => {
+export interface SearchBarProps {
+    onChange: (value: string) => void;
+}
+
+export const SearchBar = ({onChange}: SearchBarProps) => {
     return (
         <form className='relative flex items-center w-4/5 mx-auto my-3'>
             <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -14,6 +18,7 @@ export const SearchBar = () => {
                     className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Search Pokemons, Moves, Ability, etc"
                     required
+                    onChange={(e) => onChange(e.target.value)}
                 />
             </div>
         </form>

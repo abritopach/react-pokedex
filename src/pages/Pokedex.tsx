@@ -5,11 +5,13 @@ import { FabMenu } from "../components/common/fab-menu/FabMenu";
 import { useState } from "react";
 import { PokedexGeneration } from "../components/pokedex/PokedexGeneration";
 import { FabItemProps } from "../components/common/fab-menu/FabItem";
+import { PokedexSearch } from "../components/pokedex/PokedexSearch";
 
 export const Pokedex = () => {
 
     // const [fabMenuOption, setFabMenuOption] = useState('');
     const [searchForGeneration, setSearchForGeneration] = useState(false);
+    const [searchForPokemon, setSearchForPokemon] = useState(false);
 
     const fabItems: Omit<FabItemProps, "onPress">[] = [
         {icon: 'favorite', title: 'Favorite Pokémon'},
@@ -24,6 +26,11 @@ export const Pokedex = () => {
         switch(title) {
             case "All Gen": {
                 setSearchForGeneration(!searchForGeneration);
+                break;
+            }
+            case "Search": {
+                setSearchForPokemon(!searchForPokemon);
+                break;
             }
         }
     }
@@ -50,6 +57,9 @@ export const Pokedex = () => {
             */ }
             {searchForGeneration && (
                 <PokedexGeneration setSearchForGeneration={setSearchForGeneration} searchForGeneration={searchForGeneration} />
+            )}
+            {searchForPokemon && (
+                <PokedexSearch setSearchForPokemon={setSearchForPokemon} searchForPokemon={searchForPokemon} />
             )}
         </section>
     );
