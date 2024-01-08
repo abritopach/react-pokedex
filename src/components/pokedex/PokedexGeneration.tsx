@@ -7,6 +7,8 @@ import GenerationV from "../../assets/generation_V.png";
 import GenerationVI from "../../assets/generation_VI.png";
 import GenerationVII from "../../assets/generation_VII.png";
 import GenerationVIII from "../../assets/generation_VIII.png";
+import GenerationIX from "../../assets/generation_IX.png";
+import AllGenerations from "../../assets/all_generations.png";
 import { PokemonGenerationCard } from "./PokemonGenerationCard";
 import { useOutsideClick } from "../../hooks/custom/useOutsideClick";
 
@@ -72,6 +74,20 @@ export const PokedexGeneration = ({ searchForGeneration, setSearchForGeneration 
             generation: "VIII",
             offset: 809,
             img: `${GenerationVIII}`,
+        },
+        {
+            name: "Paldea",
+            limit: 121,
+            generation: "IX",
+            offset: 905,
+            img: `${GenerationIX}`,
+        },
+        {
+            name: "All",
+            limit: 25,
+            generation: "All (I - IX)",
+            offset: 0,
+            img: `${AllGenerations}`,
         },
     ];
 

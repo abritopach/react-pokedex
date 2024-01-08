@@ -11,9 +11,21 @@ interface PropsPokedexSearch {
     setSearchForPokemon: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+interface QueryData {
+    pages: Array<Pokemon[]>;
+    pageParams: number[];
+}
+
 export const PokedexSearch = ({searchForPokemon, setSearchForPokemon}: PropsPokedexSearch) => {
+
     const queryClient = useQueryClient();
-    const allPokemons: Pokemon[] = queryClient.getQueryData(['fetch pokemons']) ?? [];
+    const allPokemonPages: QueryData | undefined = queryClient.getQueryData(['fetch pokemons']);
+    const newPagesArray = (searchText: string) => {
+        if (searchText === '') return allPokemonPages?.pages;
+        return allPokemonPages?.pages.map((page) =>
+            page.filter((pokemon: Pokemon) => pokemon.name.toLowerCase().includes(searchText.toLowerCase())),
+    ) ?? []
+    };
 
     const handleClickOutside = () => {
         setSearchForPokemon(!searchForPokemon);
@@ -25,10 +37,10 @@ export const PokedexSearch = ({searchForPokemon, setSearchForPokemon}: PropsPoke
     }
 
     const filterPokemons = (searchText: string) => {
-        queryClient.setQueryData(['fetch pokemons'], () => {
-            if (searchText === '') return allPokemons;
-            return allPokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(searchText.toLowerCase()));
-        });
+        queryClient.setQueryData(['fetch pokemons'], (data: QueryData) => ({
+            pages: newPagesArray(searchText),
+            pageParams: data.pageParams,
+        }));
     };
 
 
