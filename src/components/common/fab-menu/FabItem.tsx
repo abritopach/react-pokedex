@@ -1,8 +1,4 @@
-export interface FabItemProps {
-    icon: 'favorite' | 'bolt' | 'filter_vintage' | 'search';
-    title: string;
-    onPress: (title: string) => void;
-}
+import { FabItemProps } from "../../../models/fab.model";
 
 export const FabItem = ({icon, title, onPress}: FabItemProps) => {
     return (

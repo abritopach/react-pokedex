@@ -15,19 +15,7 @@ export interface PokemonsResult {
 }
 
 export const fetchPokemons = async ({limit = 25, offset = 0, pageParam = 0 }): Promise<Pokemon[]> => {
-    console.log('pageParam', pageParam);
-    console.log('limit', limit);
-    console.log('offset', offset);
     const res = await fetch(`${URL_BASE}?limit=${limit}&offset=${offset === 25 ? (offset * pageParam) : offset}`);
-    const data : PokemonsResponse = await res.json();
-    const promises = data.results.map(async (pokemon) => {
-        return await getPokemon(pokemon.url);
-    });
-    return Promise.all(promises);
-}
-
-export const getPokemons = async ({ limit = 20, offset = 0}): Promise<Pokemon[]> => {
-    const res = await fetch(`${URL_BASE}?limit=${limit}&offset=${offset}`);
     const data : PokemonsResponse = await res.json();
     const promises = data.results.map(async (pokemon) => {
         return await getPokemon(pokemon.url);

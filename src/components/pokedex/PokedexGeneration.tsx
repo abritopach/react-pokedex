@@ -11,13 +11,9 @@ import GenerationIX from "../../assets/generation_IX.png";
 import AllGenerations from "../../assets/all_generations.png";
 import { PokemonGenerationCard } from "./PokemonGenerationCard";
 import { useOutsideClick } from "../../hooks/custom/useOutsideClick";
+import { FabOptions, PropsFabOption } from "../../models/fab.model";
 
-interface PropsPokedexGeneration {
-    searchForGeneration: boolean;
-    setSearchForGeneration: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-export const PokedexGeneration = ({ searchForGeneration, setSearchForGeneration }: PropsPokedexGeneration) => {
+export const PokedexGeneration = ({clickOutside}: PropsFabOption) => {
     const Regions = [
         {
             name: "Kanto",
@@ -92,17 +88,13 @@ export const PokedexGeneration = ({ searchForGeneration, setSearchForGeneration 
     ];
 
     const handleClickOutside = () => {
-        setSearchForGeneration(!searchForGeneration);
+        clickOutside(FabOptions.Generation);
     };
     const ref = useOutsideClick(handleClickOutside);
 
     return (
         <section
-            className={`${
-                searchForGeneration
-                    ? "generation-container active"
-                    : "generation-container"
-            }`}
+            className="generation-container active"
         >
             <article ref={ref} className='generation-section'>
                 <h1 className='text-lg font-extrabold pb-4'>Generation</h1>

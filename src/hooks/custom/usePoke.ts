@@ -1,5 +1,5 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { fetchPokemons, getPokemons } from "../../api/PokeApi";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { fetchPokemons } from "../../api/PokeApi";
 import { useCallback } from "react";
 import { Pokemon } from "../../models/pokemon.model";
 
@@ -10,13 +10,6 @@ export const _filterPokemons = (searchText: string) => useCallback(
     },
     [searchText]
 );
-
-export const useGetPokemons = ({limit = 20, offset = 0}) => {
-    return useQuery({
-        queryKey: ['fetch pokemons'],
-        queryFn: () => getPokemons({ limit, offset})
-    });
-}
 
 export const useFetchPokemons = ({limit = 25, offset = 25}) => {
     return useInfiniteQuery({
