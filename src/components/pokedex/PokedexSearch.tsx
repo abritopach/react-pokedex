@@ -5,18 +5,14 @@ import "./PokedexSearch.css";
 import { Pokemon } from "../../models/pokemon.model";
 import { useOutsideClick } from "../../hooks/custom/useOutsideClick";
 import { RefObject } from "react";
-
-interface PropsPokedexSearch {
-    searchForPokemon: boolean;
-    setSearchForPokemon: React.Dispatch<React.SetStateAction<boolean>>
-}
+import { FabOptions, PropsFabOption } from "../../models/fab.model";
 
 interface QueryData {
     pages: Array<Pokemon[]>;
     pageParams: number[];
 }
 
-export const PokedexSearch = ({searchForPokemon, setSearchForPokemon}: PropsPokedexSearch) => {
+export const PokedexSearch = ({clickOutside}: PropsFabOption) => {
 
     const queryClient = useQueryClient();
     const allPokemonPages: QueryData | undefined = queryClient.getQueryData(['fetch pokemons']);
@@ -26,16 +22,6 @@ export const PokedexSearch = ({searchForPokemon, setSearchForPokemon}: PropsPoke
             page.filter((pokemon: Pokemon) => pokemon.name.toLowerCase().includes(searchText.toLowerCase())),
     ) ?? []
     };
-
-    const handleClickOutside = () => {
-        setSearchForPokemon(!searchForPokemon);
-    };
-    const ref = useOutsideClick(handleClickOutside);
-
-    const onChangeHandler = (value: string) => {
-        filterPokemons(value);
-    }
-
     const filterPokemons = (searchText: string) => {
         queryClient.setQueryData(['fetch pokemons'], (data: QueryData) => ({
             pages: newPagesArray(searchText),
@@ -43,12 +29,18 @@ export const PokedexSearch = ({searchForPokemon, setSearchForPokemon}: PropsPoke
         }));
     };
 
+    const handleClickOutside = () => {
+        clickOutside(FabOptions.Search);
+    };
+    const ref = useOutsideClick(handleClickOutside);
+
+    const onChangeHandler = (value: string) => {
+        filterPokemons(value);
+    }
 
     return (
         <section
-            className={`${
-                searchForPokemon ? "searchSection active" : "searchSection"
-            }`}
+            className="searchSection active"
         >
             <div ref={ref as RefObject<HTMLDivElement>} className="searchBar">
                 <SearchBar onChange={onChangeHandler} />
