@@ -1,6 +1,6 @@
 
 import Pokeball from "../../assets/pokeball.png";
-import { useGetPokemons } from "../../hooks/custom/usePoke";
+import { useFetchPokemons } from "../../hooks/custom/usePoke";
 import { Loading } from "../loading/Loading";
 
 interface PropsPokemonGenerationCard {
@@ -12,7 +12,8 @@ interface PropsPokemonGenerationCard {
 
 export const PokemonGenerationCard = ({ img, generation, limit, offset }: PropsPokemonGenerationCard) => {
 
-    const { isFetching, refetch } = useGetPokemons({limit, offset});
+    // const { isFetching, refetch } = useGetPokemons({limit, offset});
+    const { isFetching, refetch } = useFetchPokemons({limit, offset});
 
     const onClickGenerationHandlerClick = () => {
         refetch();
