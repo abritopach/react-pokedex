@@ -4,45 +4,44 @@ import { Header } from "../components/common/header/Header";
 import { FabMenu } from "../components/common/fab-menu/FabMenu";
 import { useState } from "react";
 import { PokedexGeneration } from "../components/pokedex/PokedexGeneration";
-import { FabItemProps } from "../components/common/fab-menu/FabItem";
 import { PokedexSearch } from "../components/pokedex/PokedexSearch";
+import { FabItemProps, FabOptions } from "../models/fab.model";
 
 export const Pokedex = () => {
 
-    // const [fabMenuOption, setFabMenuOption] = useState('');
-    const [searchForGeneration, setSearchForGeneration] = useState(false);
-    const [searchForPokemon, setSearchForPokemon] = useState(false);
+    const mapFabOptions = new Map([
+        [FabOptions.Favorite, false],
+        [FabOptions.Types, false],
+        [FabOptions.Generation, false],
+        [FabOptions.Search, false],
+    ]);
+    const [selectedFabOption, setSelectedFabOption] = useState(mapFabOptions);
+    const updateSelectedFabOption = (key: FabOptions, value: boolean) => {
+        setSelectedFabOption(new Map(mapFabOptions.set(key, value)));
+    }
 
     const fabItems: Omit<FabItemProps, "onPress">[] = [
-        {icon: 'favorite', title: 'Favorite Pokémon'},
-        {icon: 'filter_vintage', title: 'All Types'},
-        {icon: 'bolt', title: 'All Gen'},
-        {icon: 'search', title: 'Search'},
+        {icon: 'favorite', title: 'Favorite Pokémon', key: FabOptions.Favorite },
+        {icon: 'filter_vintage', title: 'All Types', key: FabOptions.Types},
+        {icon: 'bolt', title: 'All Gen', key: FabOptions.Generation},
+        {icon: 'search', title: 'Search', key: FabOptions.Search},
     ];
 
-    function handleOnPressEvent(title: string) {
-        console.log('handleOnPressEvent', title);
-        // setFabMenuOption(title);
-        switch(title) {
-            case "All Gen": {
-                setSearchForGeneration(!searchForGeneration);
-                break;
-            }
-            case "Search": {
-                setSearchForPokemon(!searchForPokemon);
-                break;
-            }
-        }
+    const handleOnPressEvent = (option: FabOptions) => {
+        updateSelectedFabOption(option, true);
     }
+
+    const handleClickOutside = (option: FabOptions) => {
+        updateSelectedFabOption(option, false);
+    };
 
     /*
     const renderFabMenuOption  = () => {
-        console.log("renderFabMenuOption");
-        switch(fabMenuOption) {
-            case "All Gen": {
-                return <PokedexGeneration searchForGeneration={searchForGeneration} setSearchForGeneration={setSearchForGeneration} />;
-            }
-            default: return;
+        if (selectedFabOption.get(FabOptions.Generation)) {
+            return <PokedexGeneration clickOutside={handleClickOutside} />
+        }
+        if (selectedFabOption.get(FabOptions.Search)) {
+            return <PokedexSearch clickOutside={handleClickOutside} />
         }
     }
     */
@@ -55,11 +54,11 @@ export const Pokedex = () => {
             { /*
             { renderFabMenuOption() }
             */ }
-            {searchForGeneration && (
-                <PokedexGeneration setSearchForGeneration={setSearchForGeneration} searchForGeneration={searchForGeneration} />
+            {selectedFabOption.get(FabOptions.Generation) && (
+                <PokedexGeneration clickOutside={handleClickOutside} />
             )}
-            {searchForPokemon && (
-                <PokedexSearch setSearchForPokemon={setSearchForPokemon} searchForPokemon={searchForPokemon} />
+            {selectedFabOption.get(FabOptions.Search) && (
+                <PokedexSearch clickOutside={handleClickOutside} />
             )}
         </section>
     );

@@ -1,21 +1,17 @@
 import { useState } from "react";
 import "./FabMenu.css";
 import { FabMenuButton } from "./FabMenuButton";
-import { FabItem, FabItemProps } from "./FabItem";
-
-export interface FabMenuProps {
-    items: Omit<FabItemProps, "onPress">[];
-    onPress: (title: string) => void;
-}
+import { FabItem } from "./FabItem";
+import { FabMenuProps, FabOptions } from "../../../models/fab.model";
 
 export const FabMenu = ({items, onPress}: FabMenuProps) => {
     const [toggleFabMenu, setToggleFabMenu] = useState(false);
 
-    function handleOnPressEvent(title: string) {
+    function handleOnPressEvent(option: FabOptions) {
         setToggleFabMenu(!toggleFabMenu);
         const menuBtn = document.querySelector(".menuList");
         menuBtn?.classList.remove("is-active");
-        onPress(title);
+        onPress(option);
     }
 
     return (
@@ -34,8 +30,8 @@ export const FabMenu = ({items, onPress}: FabMenuProps) => {
                 <article className='menuActive'>
                 {
                     items.map((item) => (
-                        <FabItem key={item.title} title={item.title} icon={item.icon}
-                        onPress={handleOnPressEvent}></FabItem>
+                        <FabItem key={item.key} title={item.title} icon={item.icon}
+                        onPress={() => handleOnPressEvent(item.key)}></FabItem>
                     ))
                 }
                 </article>

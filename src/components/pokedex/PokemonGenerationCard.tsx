@@ -12,7 +12,6 @@ interface PropsPokemonGenerationCard {
 
 export const PokemonGenerationCard = ({ img, generation, limit, offset }: PropsPokemonGenerationCard) => {
 
-    // const { isFetching, refetch } = useGetPokemons({limit, offset});
     const { isFetching, refetch } = useFetchPokemons({limit, offset});
 
     const onClickGenerationHandlerClick = () => {
