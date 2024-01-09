@@ -16,13 +16,14 @@ export const useFetchPokemons = ({limit = 25, offset = 25}) => {
         queryKey: ['fetch pokemons'],
         queryFn: ({pageParam = 0}) => fetchPokemons({ limit, offset, pageParam}),
         initialPageParam: 0,
-        getNextPageParam: (lastPage, allPages, lastPageParam) => {
+        getNextPageParam: (lastPage, _, lastPageParam) => {
             if ((lastPage.length === 0) || lastPage.length > 25) {
                 return undefined
             }
             return lastPageParam + 1
         },
         getPreviousPageParam: (firstPage, allPages, firstPageParam) => {
+            console.log(firstPage, allPages);
             if (firstPageParam <= 1) {
                 return undefined
             }

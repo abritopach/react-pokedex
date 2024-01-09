@@ -18,7 +18,7 @@ export const Header = ({
                 className='flex items-center justify-between'
             >
                 {showArrowBack && (
-                    <Link to='/'>
+                    <Link to='/' data-testid="arrow-back-button">
                         <span className='material-icons-outlined'>arrow_back</span>
                     </Link>
                 )}
