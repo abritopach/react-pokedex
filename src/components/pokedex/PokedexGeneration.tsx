@@ -14,7 +14,7 @@ import { useOutsideClick } from "../../hooks/custom/useOutsideClick";
 import { FabOptions, PropsFabOption } from "../../models/fab.model";
 
 export const PokedexGeneration = ({clickOutside}: PropsFabOption) => {
-    const Regions = [
+    const regions = [
         {
             name: "Kanto",
             generation: "I",
@@ -99,7 +99,7 @@ export const PokedexGeneration = ({clickOutside}: PropsFabOption) => {
             <article ref={ref} className='generation-section'>
                 <h1 className='text-lg font-extrabold pb-4'>Generation</h1>
                 <article className='grid xl:grid-cols-5 md:grid-cols-4 grid-cols-2 justify-items-center gap-x-3 md:gap-x-4 md:gap-y-5 gap-y-3 md:w-11/12 w-full mx-auto pb-4 overflow-y-scroll h-full'>
-                    {Regions.map((generation) => (
+                    {regions.map((generation) => (
                         <PokemonGenerationCard
                             key={generation.name}
                             generation={generation.generation}

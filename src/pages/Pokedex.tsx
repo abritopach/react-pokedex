@@ -6,6 +6,7 @@ import { useState } from "react";
 import { PokedexGeneration } from "../components/pokedex/PokedexGeneration";
 import { PokedexSearch } from "../components/pokedex/PokedexSearch";
 import { FabItemProps, FabOptions } from "../models/fab.model";
+import { PokedexTypes } from "../components/pokedex/PokedexTypes";
 
 export const Pokedex = () => {
 
@@ -32,6 +33,7 @@ export const Pokedex = () => {
     }
 
     const handleClickOutside = (option: FabOptions) => {
+        console.log('click outside', option);
         updateSelectedFabOption(option, false);
     };
 
@@ -54,6 +56,9 @@ export const Pokedex = () => {
             { /*
             { renderFabMenuOption() }
             */ }
+            {selectedFabOption.get(FabOptions.Types) && (
+                <PokedexTypes clickOutside={handleClickOutside} />
+            )}
             {selectedFabOption.get(FabOptions.Generation) && (
                 <PokedexGeneration clickOutside={handleClickOutside} />
             )}
