@@ -7,7 +7,7 @@ import { useOutsideClick } from "../../hooks/custom/useOutsideClick";
 import { RefObject } from "react";
 import { FabOptions, PropsFabOption } from "../../models/fab.model";
 
-interface QueryData {
+export interface QueryData {
     pages: Array<Pokemon[]>;
     pageParams: number[];
 }

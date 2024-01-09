@@ -11,7 +11,8 @@ export const PokemonList = () => {
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             const target = entries[0];
-            if ((target.isIntersecting) && (document.getElementsByClassName('searchBar').length === 0)) {
+            if ((target.isIntersecting) && (document.getElementsByClassName('searchBar').length === 0)
+            && (document.getElementsByClassName('typesFilter').length === 0)) {
                 fetchNextPage();
             }
         });
