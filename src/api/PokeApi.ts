@@ -27,3 +27,8 @@ export const getPokemon = async (url: string): Promise<Pokemon> => {
     const res = await fetch(url);
     return res.json();
 }
+
+export const fetchPokemonDetails = async (name: string): Promise<Pokemon> => {
+    const res = await fetch(`${URL_BASE}/${name}`);
+    return res.json();
+}
