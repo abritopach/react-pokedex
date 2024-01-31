@@ -39,7 +39,7 @@ export const PokedexGeneration = ({clickOutside}: PropsFabOption) => {
         {
             name: "Sinnoh",
             limit: 108,
-            generation: "VI",
+            generation: "IV",
             offset: 386,
             img: `${GenerationIV}`,
         },

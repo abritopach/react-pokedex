@@ -6,6 +6,7 @@ import { Error404 } from './pages/Error404';
 import { Pokedex } from './pages/Pokedex';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Pokemon } from './pages/Pokemon';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/pokedex",
     element: <Pokedex />,
+  },
+  {
+    path: "/pokemon/:name",
+    element: <Pokemon />,
   },
   {
     path: "/moves",
