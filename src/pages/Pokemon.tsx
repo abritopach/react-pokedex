@@ -1,23 +1,21 @@
 import { useParams } from 'react-router-dom';
 import './Pokemon.css';
-import { useQueryClient } from '@tanstack/react-query';
-import { QueryData } from '../components/pokedex/PokedexSearch';
 import { PokemonCard } from '../components/pokemon/PokemonCard';
+import { useFetchPokemon } from '../hooks/custom/usePoke';
+import { Loading } from '../components/loading/Loading';
 
 export const Pokemon = () => {
 
     const { name } = useParams();
     console.log('name', name);
 
-    const queryClient = useQueryClient();
-    const allPokemonPages: QueryData | undefined = queryClient.getQueryData(['fetch pokemons']);
-    console.log('allPokemonPages', allPokemonPages);
-    const selectedPokemon = allPokemonPages?.pages.map((page) =>
-            page.filter((pokemon) => pokemon.name.toLowerCase() === name?.toLowerCase()).pop(),
-    ).pop();
+    const { data, isLoading } = useFetchPokemon(name ?? '');
+    const selectedPokemon = data;
     console.log('selectedPokemon', selectedPokemon);
 
     return (
+        <>
+        {isLoading && <Loading />}
         <main className='pokemonContainer'>
             {
             selectedPokemon && <PokemonCard
@@ -27,5 +25,6 @@ export const Pokemon = () => {
             />
             }
         </main>
+        </>
     );
 }
