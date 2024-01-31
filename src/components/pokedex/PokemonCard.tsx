@@ -1,15 +1,18 @@
+import { useNavigate } from 'react-router-dom';
 import PokeBall from '../../assets/pokeball.png';
 import { Type } from '../../models/pokemon.model';
 import { pokemonMapColors } from '../../utils/Constants';
 import './PokemonCard.css';
 
-interface Props {
+export interface PropsPokemonCard {
     id: number;
     name: string;
     types: Type[];
 }
 
-export const PokemonCard = ({id, name, types }: Props) => {
+export const PokemonCard = ({id, name, types }: PropsPokemonCard) => {
+
+    const navigate = useNavigate();
 
     const pokemonTypes = types.map((type) => type.type.name);
     const color = pokemonMapColors.get(pokemonTypes[0]);
@@ -18,10 +21,15 @@ export const PokemonCard = ({id, name, types }: Props) => {
         backgroundColor: `${color}`,
     };
 
+    const onClickPokemonHandler = async () => {
+        navigate(`/Pokemon/${name}`);
+    };
+
     return (
         <section
             className='pokemon-card cursor-pointer'
             style={styleBg}
+            onClick={onClickPokemonHandler}
         >
             <h2 className='capitalize font-bold tracking-tighter md:text-lg text-sm text-white'>
                 {name}

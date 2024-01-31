@@ -6,12 +6,12 @@ import { CategoryCard } from "./CategoryCard";
 export const HeaderCard = () => {
 
     const categories: Category[] = [
-        {color: '#4FC1A6FF', name: 'Pokedex', route: 'Pokedex'},
-        {color: '#FA6555FF', name: 'Moves', route: 'Moves'},
-        {color: '#429BEDFF', name: 'Abilities', route: 'Abilities'},
-        {color: '#F6C747FF', name: 'Items', route: 'Items'},
-        {color: '#7C538CFF', name: 'Locations', route: 'Locations'},
-        {color: '#B1736CFF', name: 'Type Effects', route: 'Type_Charts'},
+        {color: '#4FC1A6FF', name: 'Pokedex', route: 'pokedex'},
+        {color: '#FA6555FF', name: 'Moves', route: 'moves'},
+        {color: '#429BEDFF', name: 'Abilities', route: 'abilities'},
+        {color: '#F6C747FF', name: 'Items', route: 'items'},
+        {color: '#7C538CFF', name: 'Locations', route: 'locations'},
+        {color: '#B1736CFF', name: 'Type Effects', route: 'type_charts'},
     ];
 
     return (
