@@ -3,6 +3,7 @@ import './Pokemon.css';
 import { PokemonCard } from '../components/pokemon/PokemonCard';
 import { useFetchPokemon } from '../hooks/custom/usePoke';
 import { Loading } from '../components/loading/Loading';
+import { PokemonTabs } from '../components/pokemon/PokemonTabs';
 
 export const Pokemon = () => {
 
@@ -24,6 +25,7 @@ export const Pokemon = () => {
                 types={selectedPokemon.types}
             />
             }
+            <PokemonTabs />
         </main>
         </>
     );
