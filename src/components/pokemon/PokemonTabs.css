@@ -1,0 +1,23 @@
+.pokeDetails {
+    width: 100%;
+    background-color: #fff;
+    color: #333;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 32px 24px;
+}
+
+.detailsBtn {
+    /* border: 1px solid lightgray; */
+    padding: 0 0 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in;
+}
+
+.detailsBtn.active {
+    border-bottom: 2px solid #9691f1;
+    font-weight: 600;
+}
