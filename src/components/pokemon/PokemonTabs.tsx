@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import './PokemonTabs.css';
+import { AboutTab } from './tabs/about/AboutTab';
 
 export const PokemonTabs = () => {
 
-    const [about, setAbout] = useState(true);
-    const [stats, setStats] = useState(false);
-    const [evolution, setEvolution] = useState(false);
-    const [moves, setMoves] = useState(false);
+    const [about] = useState(true);
+    const [stats] = useState(false);
+    const [evolution] = useState(false);
+    const [moves] = useState(false);
 
     return (
         <section className='pokeDetails'>
@@ -34,6 +35,9 @@ export const PokemonTabs = () => {
                     Moves
                 </button>
             </section>
+            {about && (
+                <AboutTab/>
+            )}
         </section>
     );
 };

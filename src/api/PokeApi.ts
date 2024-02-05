@@ -1,3 +1,4 @@
+import { PokemonSpecies } from "../models/pokemon-species.model";
 import { Pokemon } from "../models/pokemon.model";
 
 const URL_BASE = 'https://pokeapi.co/api/v2/pokemon';
@@ -30,5 +31,10 @@ export const getPokemon = async (url: string): Promise<Pokemon> => {
 
 export const fetchPokemonDetails = async (name: string): Promise<Pokemon> => {
     const res = await fetch(`${URL_BASE}/${name}`);
+    return res.json();
+}
+
+export const fetchPokemonSpecies = async (name: string): Promise<PokemonSpecies> => {
+    const res = await fetch(`${URL_BASE}-species/${name}`);
     return res.json();
 }

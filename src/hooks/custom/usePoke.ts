@@ -1,5 +1,5 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { fetchPokemonDetails, fetchPokemons } from "../../api/PokeApi";
+import { fetchPokemonDetails, fetchPokemonSpecies, fetchPokemons } from "../../api/PokeApi";
 import { useCallback } from "react";
 import { Pokemon } from "../../models/pokemon.model";
 
@@ -36,6 +36,14 @@ export const useFetchPokemon = (name: string) => {
     return useQuery({
         queryKey: ['fetch pokemon'],
         queryFn: () => fetchPokemonDetails(name),
+        refetchOnMount: true
+    })
+}
+
+export const useFetchPokemonSpecies = (name: string) => {
+    return useQuery({
+        queryKey: ['fetch pokemon species'],
+        queryFn: () => fetchPokemonSpecies(name),
         refetchOnMount: true
     })
 }

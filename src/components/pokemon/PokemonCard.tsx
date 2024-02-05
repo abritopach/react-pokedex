@@ -48,9 +48,9 @@ export const PokemonCard = ({ name, id, types }: PropsPokemonCard) => {
                         </div>
                     </div>
                 </figcaption>
-                <div className='relative flex justify-center items-center overflow-hidden w-full mt-6'>
+                <div className='relative flex justify-center items-center overflow-hidden w-full'>
                     <img
-                        className='relative z-10 w-3/4 -bottom-4'
+                        className='relative z-10 w-1/5 -bottom-4'
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
                         alt={name}
                     />
