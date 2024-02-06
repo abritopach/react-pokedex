@@ -9,7 +9,7 @@ export const Breeding = () => {
 
     //Get Gender
     const genderPercentage =
-        data?.gender_rate !== -1
+        data?.gender_rate && data?.gender_rate !== -1
             ? (data?.gender_rate / 8) * 100
             : -1;
 
@@ -48,23 +48,19 @@ export const Breeding = () => {
                 </div>
                 <div className='flex items-center justify-start my-1.5'>
                     <p className='text-gray-400 font-medium mr-5'>Egg Groups</p>
-                    {/*
-                    {pokemonAbout.egg_groups.map((group, index) => (
+                    {data?.egg_groups.map((group, index) => (
                         <p key={index} className='mr-1 capitalize'>
                             {group.name},
                         </p>
                     ))}
-                    */}
                 </div>
                 <div className='flex items-center justify-start my-2'>
                     <p className='text-gray-400 font-medium mr-5'>Egg Cycle</p>
-                    {/*
-                    {pokemonAbout.egg_groups.map((group, index) => (
+                    {data?.egg_groups.map((group, index) => (
                         <p key={index} className='mr-1 capitalize'>
                             {group.name},
                         </p>
                     ))}
-                    */}
                 </div>
             </article>
         </section>
