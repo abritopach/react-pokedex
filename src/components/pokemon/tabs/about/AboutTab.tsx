@@ -1,5 +1,6 @@
 import { useFetchPokemonSpecies } from "../../../../hooks/custom/usePoke";
 import { Breeding } from "./Breeding";
+import Location from "./Location";
 import { Size } from "./Size";
 
 export const AboutTab = () => {
@@ -19,6 +20,7 @@ export const AboutTab = () => {
             </h1>
             <Size />
             <Breeding />
+            <Location color="green" />
         </section>
     );
 };
